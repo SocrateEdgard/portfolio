@@ -363,6 +363,7 @@ ul, ol {
     font-size: 1.1rem;
     max-width: 600px;
     margin-bottom: 2rem;
+    text-align: left;
 }
 
 .hero-cta {
@@ -1046,6 +1047,20 @@ ul, ol {
     .footer-services h4::after {
         left: 50%;
         transform: translateX(-50%);
+    }
+
+    /* Modifications spécifiques demandées */
+    .tagline span::after {
+        display: none;
+    }
+
+    .description {
+        text-align: center;
+    }
+
+    .footer-links ul,
+    .footer-services ul {
+        align-items: center;
     }
 }
 
