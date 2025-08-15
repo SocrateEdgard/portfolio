@@ -855,6 +855,8 @@ ul, ol {
 
 .footer-about p {
     max-width: 400px;
+    text-align: left;
+    margin-left: 0;
 }
 
 .footer-links h4,
@@ -863,6 +865,7 @@ ul, ol {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
     position: relative;
+    text-align: left;
 }
 
 .footer-links h4::after,
@@ -881,6 +884,7 @@ ul, ol {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
+    align-items: flex-start;
 }
 
 .footer-links a,
@@ -994,6 +998,7 @@ ul, ol {
     .navbar-links ul {
         flex-direction: column;
         gap: 1.5rem;
+        align-items: flex-start;
     }
     
     .navbar-cta {
@@ -1003,19 +1008,20 @@ ul, ol {
     /* Hero Section */
     .hero-content {
         flex-direction: column-reverse;
-        text-align: center;
+        text-align: left;
     }
     
     .hero-text {
         margin-top: 2rem;
+        text-align: left;
     }
     
     .hero-cta {
-        justify-content: center;
+        justify-content: flex-start;
     }
     
     .hero-social {
-        justify-content: center;
+        justify-content: flex-start;
     }
     
     .image-badge {
@@ -1036,17 +1042,18 @@ ul, ol {
     /* Footer */
     .footer-content {
         grid-template-columns: 1fr;
-        text-align: center;
+        text-align: left;
     }
 
     .footer-about p {
-        margin: 0 auto;
+        margin: 0;
+        text-align: left;
     }
 
     .footer-links h4::after,
     .footer-services h4::after {
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
+        transform: none;
     }
 
     /* Modifications spécifiques demandées */
@@ -1055,12 +1062,12 @@ ul, ol {
     }
 
     .description {
-        text-align: center;
+        text-align: left;
     }
 
     .footer-links ul,
     .footer-services ul {
-        align-items: center;
+        align-items: flex-start;
     }
 }
 
@@ -1080,6 +1087,7 @@ ul, ol {
     
     .hero-cta {
         flex-direction: column;
+        align-items: flex-start;
     }
     
     .projects-grid {
@@ -1088,6 +1096,7 @@ ul, ol {
     
     .footer-content {
         grid-template-columns: 1fr;
+        text-align: left;
     }
     
     .footer-bottom {
