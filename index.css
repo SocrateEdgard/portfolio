@@ -19,6 +19,23 @@
     --info: #17a2b8;
 }
 
+/* Light theme variables */
+[data-theme="light"] {
+    --primary: #f8f9fa;
+    --primary-dark: #e9ecef;
+    --primary-light: #ffffff;
+    --secondary: #073362;
+    --secondary-dark: #05224d;
+    --accent: #007bff;
+    --accent-dark: #0056b3;
+    --text: #333333;
+    --text-light: #666666;
+    --text-dark: #000000;
+    --bg-light: #ffffff;
+    --bg-dark: #f8f9fa;
+    --border: rgba(0, 0, 0, 0.1);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -37,6 +54,61 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===== DARK MODE TOGGLE ===== */
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+    background: var(--secondary);
+    color: var(--primary);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    z-index: 1001;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background: var(--secondary-dark);
+}
+
+.theme-toggle .fa-sun {
+    display: none;
+}
+
+[data-theme="light"] .theme-toggle .fa-moon {
+    display: none;
+}
+
+[data-theme="light"] .theme-toggle .fa-sun {
+    display: block;
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .header {
+    background: rgba(248, 249, 250, 0.9);
+}
+
+[data-theme="light"] .header.scrolled {
+    background: rgba(233, 236, 239, 0.95);
+}
+
+[data-theme="light"] .service-card,
+[data-theme="light"] .stat-card,
+[data-theme="light"] .project-card,
+[data-theme="light"] .testimonial-card {
+    background: rgba(0, 0, 0, 0.05);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -859,7 +931,7 @@ ul, ol {
 
 .footer-links,
 .footer-services {
-  text-align: left; /* Alignement général à gauche */
+  text-align: left;
 }
 
 .footer-links h4,
@@ -868,8 +940,8 @@ ul, ol {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
     position: relative;
-    text-align: left; /* Alignement du texte à gauche */
-    width: 100%; /* Prend toute la largeur */
+    text-align: left;
+    width: 100%;
 }
 
 .footer-links h4::after,
@@ -888,23 +960,23 @@ ul, ol {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    padding-left: 0; /* Supprime le padding par défaut */
-    margin-left: 0; /* Supprime la marge par défaut */
-    text-align: left; /* Alignement du texte à gauche */
+    padding-left: 0;
+    margin-left: 0;
+    text-align: left;
 }
 
 .footer-links li,
 .footer-services li {
-    list-style: none; /* Supprime les puces */
-    text-align: left; /* Alignement du texte à gauche */
-    width: 100%; /* Prend toute la largeur */
+    list-style: none;
+    text-align: left;
+    width: 100%;
 }
 
 .footer-links a,
 .footer-services a {
     transition: all 0.3s ease;
-    display: inline-block; /* Permet un meilleur contrôle */
-    text-align: left; /* Alignement du texte à gauche */
+    display: inline-block;
+    text-align: left;
 }
 
 .footer-links a:hover,
@@ -1001,7 +1073,7 @@ ul, ol {
         height: 100vh;
         background: var(--primary-dark);
         flex-direction: column;
-        padding: 6rem 2rem;
+        padding: 6rem 2rem 2rem;
         transition: all 0.4s ease;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
     }
@@ -1018,6 +1090,11 @@ ul, ol {
     .navbar-cta {
         display: none;
     }
+
+    .theme-toggle {
+    z-index: 2001; /* au-dessus du menu hamburger */
+}
+    
     
     /* Hero Section */
     .hero-content {
@@ -1061,67 +1138,39 @@ ul, ol {
     .footer-about p {
         margin: 0 auto;
     }
-.footer-links h4,
-.footer-services h4 {
-    color: var(--text);
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    position: relative;
-    text-align: left;
-    padding-left: 0; /* Supprime tout padding à gauche */
-    margin-left: 0; /* Supprime toute marge à gauche */
-    width: auto; /* Largeur naturelle du contenu */
-    display: inline-block; /* Permet au soulignement de s'aligner avec le texte */
-}
 
-.footer-links h4::after,
-.footer-services h4::after {
-    content: '';
-    position: absolute;
-    width: 40px;
-    height: 2px;
-    background: var(--secondary);
-    bottom: -8px;
-    left: 0; /* Déjà à gauche, mais confirmé */
-    margin-left: 0; /* Supprime toute marge */
-}
+    .footer-links h4,
+    .footer-services h4 {
+        text-align: left;
+        padding-left: 0;
+        margin-left: 0;
+        width: auto;
+        display: inline-block;
+    }
 
-.footer-links ul,
-.footer-services ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    padding-left: 0;
-    margin-left: 0;
-    text-align: left;
-}
+    .footer-links h4::after,
+    .footer-services h4::after {
+        left: 0;
+        margin-left: 0;
+    }
 
-.footer-links li,
-.footer-services li {
-    list-style: none;
-    text-align: left;
-    width: 100%;
-    padding-left: 0;
-    margin-left: 0;
-}
+    .footer-links ul,
+    .footer-services ul {
+        text-align: left;
+    }
 
-.footer-links a,
-.footer-services a {
-    transition: all 0.3s ease;
-    display: inline-block;
-    text-align: left;
-    padding-left: 0;
-    margin-left: 0;
-}
+    .footer-links li,
+    .footer-services li {
+        text-align: left;
+    }
 
-.footer-links a:hover,
-.footer-services a:hover {
-    color: var(--secondary);
-    padding-left: 5px;
+    .footer-links a,
+    .footer-services a {
+        text-align: left;
+    }
 }
 
 @media (max-width: 576px) {
-    /* Mobile Optimizations */
     html {
         font-size: 15px;
     }
@@ -1151,7 +1200,6 @@ ul, ol {
         text-align: center;
     }
 
-    /* Ajustements supplémentaires pour petits écrans */
     .footer-about p {
         text-align: justify;
         text-justify: inter-word;

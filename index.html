@@ -4,7 +4,7 @@
     <meta property="og:title" content="Portfolio de Socrate Edgard" />
     <meta property="og:description" content="Découvrez mes créations web, mes services et mon savoir-faire en développement digital." />
     <meta property="og:image" content="https://tonimage.com/image.png" />
-    <meta property="og:url" content="https://SocrateEdgard.github.io/portfolio/" />
+    <meta property="og:url" content="https://socrateedgard.github.io/portfolio/" />
     <meta property="og:type" content="website" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,6 @@
     <title>Mwamba Kasongo Socrate Edgard| Développeur Web & Formateur</title>
     
     <!-- Favicon -->
-    <!-- Favicon classique -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
     <link rel="shortcut icon" href="favicon.png" type="image/png">
@@ -20,6 +19,10 @@
     <!-- Manifest pour Google et appareils mobiles -->
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#ffffff">
+    
+    <!-- Optimisation des polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400&display=swap">
@@ -37,6 +40,12 @@
             </div>
         </div>
     </div>
+
+    <!-- Dark Mode Toggle (Desktop) -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Basculer le mode sombre">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
 
     <!-- Header -->
     <header class="header">
@@ -78,7 +87,7 @@
                     <h2 class="tagline">Je transforme vos idées en <span>solutions digitales performantes</span></h2>
                     
                     <p class="description">
-                        Actuellement étudiant en terminale en Informatique de Gestion, je suis également un autodidacte passionné par le numérique. J’ai eu l’opportunité de collaborer avec plusieurs clients pour concrétiser leurs projets web et de former plus de 37 étudiants aux technologies digitales.
+                        Actuellement étudiant en terminale en Informatique de Gestion, je suis également un autodidacte passionné par le numérique. J'ai eu l'opportunité de collaborer avec plusieurs clients pour concrétiser leurs projets web et de former plus de 37 étudiants aux technologies digitales.
                     </p>
                     
                     <div class="hero-cta">
@@ -100,7 +109,7 @@
                 
                 <div class="hero-image" data-aos="fade-left">
                     <div class="image-wrapper">
-                        <img src="maphoto.jpg" alt="Socrate Mwamba Kasongo - Développeur Web" width="500" height="500" loading="eager">
+                        <img src="maphoto.jpg" alt="Socrate Mwamba Kasongo - Développeur Web" width="500" height="500" loading="lazy">
                         <div class="image-badge">
                             <span>3+ ans d'expérience</span>
                         </div>
@@ -122,7 +131,7 @@
             <div class="about-content">
                 <div class="about-text" data-aos="fade-right">
                     <p>
-                        Actuellement étudiant en terminale en Informatique de Gestion et autodidacte passionné, j’ai accompagné plusieurs clients dans la réalisation de leurs projets web tout en formant plus de 37 étudiants aux technologies numériques.
+                        Actuellement étudiant en terminale en Informatique de Gestion et autodidacte passionné, j'ai accompagné plusieurs clients dans la réalisation de leurs projets web tout en formant plus de 37 étudiants aux technologies numériques.
                     </p>
                     
                     <p>
@@ -309,7 +318,7 @@
                 </div>
                 <div class="project-info">
                     <h3>Mulykap</h3>
-                    <p>Réalisation d’un site internet pour l’entreprise de transport Mulycap dans le Grand Katanga, dans le cadre de mon apprentissage en informatique de gestion.</p>
+                    <p>Réalisation d'un site internet pour l'entreprise de transport Mulycap dans le Grand Katanga, dans le cadre de mon apprentissage en informatique de gestion.</p>
                     <div class="project-tech">
                         <span>HTML</span>
                         <span>CSS</span>
@@ -332,7 +341,7 @@
                 </div>
                 <div class="project-info">
                     <h3>Gestion des Assujettis</h3>
-                    <p>Création d’une application pour le Bureau de l’Environnement de Mutshatsha, destinée à la gestion des comptes des assujettis et au suivi de leurs paiements de documents, réalisée dans le cadre de mon apprentissage en informatique de gestion.</p>
+                    <p>Création d'une application pour le Bureau de l'Environnement de Mutshatsha, destinée à la gestion des comptes des assujettis et au suivi de leurs paiements de documents, réalisée dans le cadre de mon apprentissage en informatique de gestion.</p>
                     <div class="project-tech">
                         <span>HTML</span>
                         <span>CSS</span>
@@ -355,7 +364,7 @@
                 </div>
                 <div class="project-info">
                     <h3>KKS Express</h3>
-                    <p>Développement d’un système de gestion des réservations de places pour KKS Express Kolwezi, réalisé dans le cadre de mon apprentissage en informatique de gestion.</p>
+                    <p>Développement d'un système de gestion des réservations de places pour KKS Express Kolwezi, réalisé dans le cadre de mon apprentissage en informatique de gestion.</p>
                     <div class="project-tech">
                         <span>HTML</span>
                         <span>CSS</span>
@@ -542,7 +551,7 @@
             <div class="footer-legal">
                 <div class="legal-text">
                     <p><strong>Mentions légales :</strong> Ce site est édité par Socrate Mwamba Kasongo, développeur web indépendant basé à Kolwezi, RDC.</p>
-                    <p><strong>Politique de confidentialité : </strong>Afin de respecter les accords de confidentialité établis avec les clients, certains projets présentés dans ce portfolio sont affichés sous forme statique. Par ailleurs, certains travaux ne sont pas publiés ici, conformément à la volonté de leurs propriétaires qui n’ont pas autorisé la diffusion de leurs sites ou applications.</p>
+                    <p><strong>Politique de confidentialité : </strong>Afin de respecter les accords de confidentialité établis avec les clients, certains projets présentés dans ce portfolio sont affichés sous forme statique. Par ailleurs, certains travaux ne sont pas publiés ici, conformément à la volonté de leurs propriétaires qui n'ont pas autorisé la diffusion de leurs sites ou applications.</p>
                 </div>
             
                 <div class="footer-bottom">
@@ -559,52 +568,69 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            offset: 100
-        });
-        
-        // Loader
-        window.addEventListener('load', function() {
-            document.getElementById('loader').style.opacity = '0';
-            setTimeout(() => {
-                document.getElementById('loader').style.display = 'none';
-            }, 500);
-        });
+<script>
+    // Initialisation AOS (animations)
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        offset: 100
+    });
 
-        // Hamburger Menu
-        const hamburger = document.getElementById('hamburger');
-        const navbarLinks = document.getElementById('navbarLinks');
-        
-        hamburger.addEventListener('click', () => {
-            navbarLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
+    // Sélection des éléments
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
 
-        // Close menu when clicking on a link
-        document.querySelectorAll('.navbar-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navbarLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
+    // Gestion du thème
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    body.setAttribute('data-theme', savedTheme);
 
-        // Back to top button
-        const backToTop = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTop.classList.add('active');
-            } else {
-                backToTop.classList.remove('active');
-            }
+    function toggleTheme() {
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    }
+
+    // Bouton mode sombre (desktop)
+    themeToggle.addEventListener('click', toggleTheme);
+
+    // Loader
+    window.addEventListener('load', function() {
+        const loader = document.getElementById('loader');
+        loader.style.opacity = '0';
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500);
+    });
+
+    // Menu hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navbarLinks = document.getElementById('navbarLinks');
+
+    hamburger.addEventListener('click', () => {
+        navbarLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.navbar-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navbarLinks.classList.remove('active');
+            hamburger.classList.remove('active');
         });
-    </script>
+    });
+
+    // Bouton retour en haut
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTop.classList.add('active');
+        } else {
+            backToTop.classList.remove('active');
+        }
+    });
+</script>
+
 </body>
 </html>
