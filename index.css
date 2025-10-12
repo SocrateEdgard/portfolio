@@ -1094,7 +1094,7 @@ ul, ol {
     .theme-toggle {
     z-index: 2001; /* au-dessus du menu hamburger */
 }
-    
+
     
     /* Hero Section */
     .hero-content {
@@ -1205,3 +1205,18 @@ ul, ol {
         text-justify: inter-word;
     }
 }
+
+html, body {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.loader-wrapper {
+    overflow: hidden;
+}
+
