@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion Administrateur</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container { 
+            max-width: 400px; 
+            margin: 50px auto; 
+            padding: 20px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 { 
+            text-align: center; 
+            color: #333;
+        }
+        .form-group { 
+            margin-bottom: 15px; 
+            position: relative;
+        }
+        label { 
+            display: block; 
+            margin-bottom: 5px; 
+            font-weight: bold;
+        }
+        input[type="text"], input[type="password"] { 
+            width: 100%; 
+            padding: 10px; 
+            box-sizing: border-box; 
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 37px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 14px;
+            color: #007bff;
+        }
+        .btn { 
+            display: block; 
+            width: 100%; 
+            padding: 10px; 
+            background-color: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .error { 
+            color: red; 
+            text-align: center; 
+            margin-bottom: 15px;
+        }
+    </style>
+        <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNFWJEQ566"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-DNFWJEQ566');
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Connexion Administrateur</h2>
+    <p>Veuillez remplir vos identifiants pour vous connecter.</p>
+    
+    <div id="error-message" class="error" style="display: none;"></div>
+
+    <form id="loginForm">
+        <div class="form-group">
+            <label for="matricule">Matricule :</label>
+            <input type="text" name="matricule" id="matricule" placeholder="ADM123" required>
+        </div>
+        <div class="form-group">
+            <label for="mot_de_passe">Mot de passe :</label>
+            <input type="password" name="mot_de_passe" id="mot_de_passe" placeholder="password123" required>
+            <button type="button" class="toggle-password" id="togglePassword">Voir</button>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn" value="Se connecter">
+        </div>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const fixedMatricule = "ADM123";
+        const fixedPassword = "password123";
+        
+        const matriculeInput = document.getElementById('matricule');
+        const passwordInput = document.getElementById('mot_de_passe');
+        const loginForm = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('error-message');
+        const togglePassword = document.getElementById('togglePassword');
+
+        // Voir / cacher mot de passe
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            togglePassword.textContent = type === 'password' ? 'Voir' : 'Cacher';
+        });
+        
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const userMatricule = matriculeInput.value;
+            const userPassword = passwordInput.value;
+            
+            if (userMatricule === fixedMatricule && userPassword === fixedPassword) {
+                window.location.href = "acceuil.html";
+            } else {
+                errorMessage.textContent = "Matricule ou mot de passe incorrect.";
+                errorMessage.style.display = "block";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

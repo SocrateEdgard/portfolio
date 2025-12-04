@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Mulykap Transport</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0066cc;
+            --secondary-blue: #004d99;
+            --accent-orange: #dc5828;
+            --light-gray: #f8f9fa;
+            --dark-color: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-gray);
+            color: var(--dark-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(0, 102, 204, 0.05), rgba(0, 102, 204, 0.05));
+        }
+        
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            padding: 20px;
+        }
+        
+        .login {
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 68, 153, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s;
+            border-top: 5px solid var(--primary-blue);
+        }
+        
+        .login:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 68, 153, 0.15);
+        }
+        
+        .login h3 {
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            font-size: 32px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .login h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-orange);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+        }
+        
+        .form-group i {
+            position: absolute;
+            right: 15px;
+            top: 40px;
+            color: #999;
+        }
+        
+        .button {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            box-shadow: 0 4px 10px rgba(0, 68, 153, 0.3);
+        }
+        
+        .button:hover {
+            background: linear-gradient(to right, var(--secondary-blue), var(--primary-blue));
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 68, 153, 0.4);
+        }
+        
+        .forgot-password {
+            text-align: right;
+            margin-top: 10px;
+        }
+        
+        .forgot-password a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .forgot-password a:hover {
+            color: var(--secondary-blue);
+            text-decoration: underline;
+        }
+        
+        .register-link {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 15px;
+        }
+        
+        .register-link a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .register-link a:hover {
+            color: var(--secondary-blue);
+            text-decoration: underline;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--secondary-blue), #003366);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-content p {
+            margin: 10px 0;
+        }
+        
+        .footer-content a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-content a:hover {
+            color: #cce6ff;
+            text-decoration: underline;
+        }
+        
+        .social-media {
+            margin: 20px 0;
+        }
+        
+        .social-media a {
+            font-size: 20px;
+            margin: 0 15px;
+            color: white;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .social-media a:hover {
+            transform: translateY(-3px);
+            color: #cce6ff;
+        }
+        
+        @media (max-width: 480px) {
+            .login {
+                padding: 30px 20px;
+            }
+            
+            .login h3 {
+                font-size: 28px;
+            }
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNFWJEQ566"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-DNFWJEQ566');
+    </script>
+    </head>
+<body>
+    <div class="login-container">
+        <section class="login animate__animated animate__fadeInUp">
+            <h3><i class="fas fa-sign-in-alt"></i> Connexion</h3>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="login-email">Adresse e-mail</label>
+                    <input type="email" id="login-email" name="login-email" required placeholder="votre@email.com">
+                    <i class="fas fa-envelope"></i>
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password">Mot de passe</label>
+                    <input type="password" id="login-password" name="login-password" required placeholder="••••••••">
+                    <i class="fas fa-lock"></i>
+                </div>
+                
+                <div class="forgot-password">
+                    <a href="#">Mot de passe oublié ?</a>
+                </div>
+                
+                <button type="submit" class="button">Se connecter <i class="fas fa-arrow-right"></i></button>
+                
+                <div class="register-link">
+                    Pas encore de compte ? <a href="Inscription.html">Créer un compte</a>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <footer class="animate__animated animate__fadeInUp">
+        <div class="footer-content">
+            <h4><i class="fas fa-bus"></i> MULYKAP TRANSPORT</h4>
+            <p>&copy; 2024 Mulykap Transport. Tous droits réservés.</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:contact@mulykap.com">contact@mulykap.com</a></p>
+            <p><i class="fas fa-phone"></i> <a href="tel:+243892889353">+243 892 889 353</a></p>
+            <div class="social-media">
+                <a href="https://www.facebook.com/Mulykap" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.twitter.com/Mulykap" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/Mulykap" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('.form-group input');
+            
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.querySelector('i').style.color = 'var(--primary-blue)';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.parentElement.querySelector('i').style.color = '#999';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

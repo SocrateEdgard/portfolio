@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta property="og:title" content="Portfolio de Socrate Edgard" />
+    <meta property="og:description"
+        content="Découvrez mes créations web, mes services et mon savoir-faire en développement digital." />
+    <meta property="og:image" content="https://tonimage.com/image.png" />
+    <meta property="og:url" content="https://socrateedgard.github.io/portfolio/" />
+    <meta property="og:type" content="website" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfolio de Mwamba Kasongo Socrate Edgard, étudiant en informatique de gestion à Kolwezi. Découvrez mes projets en développement web et informatique.">
+    <title>Mwamba Kasongo Socrate Edgard| Développeur Web & Formateur</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+
+    <!-- Manifest pour Google et appareils mobiles -->
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Optimisation des polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="index.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNFWJEQ566"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-DNFWJEQ566');
+    </script>
+</head>
+
+<body>
+    <!-- Loader -->
+    <div class="loader-wrapper" id="loader">
+        <div class="loader">
+            <div class="loader-inner">
+                <div class="loader-circle"></div>
+                <p>Chargement...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dark Mode Toggle (Desktop) -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Basculer le mode sombre">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo" data-aos="fade-down">
+                    <span>Socrate MK</span>
+                </a>
+
+                <div class="navbar-links" id="navbarLinks">
+                    <ul>
+                        <li data-aos="fade-down" data-aos-delay="100"><a href="#about">À propos</a></li>
+                        <li data-aos="fade-down" data-aos-delay="150"><a href="#services">Expertises</a></li>
+                        <li data-aos="fade-down" data-aos-delay="200"><a href="#projects">Réalisations</a></li>
+                        <li data-aos="fade-down" data-aos-delay="250"><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="navbar-cta" data-aos="fade-down" data-aos-delay="300">
+                    <a href="#contact" class="btn btn-outline">Disponible pour missions</a>
+                </div>
+
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text" data-aos="fade-right">
+                    <h6 class="subtitle">Développeur Web </h6>
+                    <h1 class="title">Socrate Mwamba Kasongo Edgard</h1>
+                    <h2 class="tagline">Je transforme vos idées en <span>solutions digitales performantes</span></h2>
+
+                    <p class="description">
+                        Actuellement étudiant en terminale en Informatique de Gestion, je suis également un autodidacte
+                        passionné par le numérique. J'ai eu l'opportunité de collaborer avec plusieurs clients pour
+                        concrétiser leurs projets web et de former plus de 37 étudiants aux technologies digitales.
+                    </p>
+
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Discutons de votre projet
+                        </a>
+                        <a href="#projects" class="btn btn-secondary">
+                            <i class="fas fa-eye"></i> Voir mes réalisations
+                        </a>
+                    </div>
+
+                    <div class="hero-social">
+                        <span>Suivez-moi :</span>
+                        <a href="https://github.com/SocrateEdgard" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/socrate-mwamba" target="_blank"
+                            rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://x.com/socrate_mwamba" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="hero-image" data-aos="fade-left">
+                    <div class="image-wrapper">
+                        <img src="maphoto.jpg" alt="Socrate Mwamba Kasongo - Développeur Web" width="500" height="500"
+                            loading="lazy">
+                        <div class="image-badge">
+                            <span>3+ ans d'expérience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h3 class="section-subtitle">Présentation</h3>
+                <h2 class="section-title">À propos de moi</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <p>
+                        Actuellement étudiant en terminale en Informatique de Gestion et autodidacte passionné, j'ai
+                        accompagné plusieurs clients dans la réalisation de leurs projets web tout en formant plus de 37
+                        étudiants aux technologies numériques.
+                    </p>
+
+                    <p>
+                        Mon approche combine rigueur technique et orientation utilisateur, avec un focus particulier sur
+                        les performances et l'accessibilité.
+                    </p>
+
+                    <div class="skills">
+                        <h4>Compétences techniques :</h4>
+                        <div class="skill-tags">
+                            <span>HTML/CSS</span>
+                            <span>JavaScript</span>
+                            <span>React.js</span>
+                            <span>Node.js</span>
+                            <span>PHP/MySQL</span>
+                            <span>Git/GitHub</span>
+                            <span>C#</span>
+                            <span>Java</span>
+                            <span>Algorithmique</span>
+                        </div>
+                    </div>
+
+                    <a href="assets/docs/cv-socrate-mwamba-kasongo.pdf" download class="btn btn-outline">
+                        <i class="fas fa-download"></i> Télécharger mon CV
+                    </a>
+                </div>
+
+                <div class="about-stats" data-aos="fade-left">
+                    <div class="stat-card">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-title">Projets réalisés</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">37+</div>
+                        <div class="stat-title">Étudiants formés</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">+57</div>
+                        <div class="stat-title">Clients satisfaits</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h3 class="section-subtitle">Ce que j'offre</h3>
+                <h2 class="section-title">Mes expertises</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Développement Web</h3>
+                    <p>
+                        Conception et réalisation de sites et applications web modernes, responsives et performants.
+                    </p>
+                    <ul class="service-features">
+                        <li>Sites vitrines & e-commerce (Airtel Money, M-Pesa)</li>
+                        <li>Applications Web de Gestion (écoles, commerces, etc.)</li>
+                        <li>Plateformes sur mesure avec espace membre</li>
+                        <li>Optimisation et mise à jour de sites existants</li>
+                    </ul>
+                    <a href="#contact" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Solutions Data</h3>
+                    <p>
+                        Conception, gestion et sécurisation de bases de données fiables et optimisées.
+                    </p>
+                    <ul class="service-features">
+                        <li>Architecture et modélisation MySQL</li>
+                        <li>Intégrité référentielle & performance</li>
+                        <li>Requêtes SQL complexes & automatisation</li>
+                        <li>Migrations, sauvegardes et restauration</li>
+                    </ul>
+                    <a href="#contact" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Formation & Coaching Tech</h3>
+                    <p>
+                        Programmes de formation adaptés pour étudiants, entrepreneurs et débutants.
+                    </p>
+                    <ul class="service-features">
+                        <li>Initiation à la bureautique (Word, Excel, PowerPoint)</li>
+                        <li>Création de sites web (HTML, CSS, JavaScript, PHP, MySQL)</li>
+                        <li>Formation Marketing Digital & Outils IA</li>
+                        <li>Ateliers pratiques et mentorat personnalisé</li>
+                    </ul>
+                    <a href="#contact" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h3 class="section-subtitle">Portfolio</h3>
+                <h2 class="section-title">Mes réalisations</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="projects-filter" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="formation">Formation</button>
+                <button class="filter-btn" data-filter="consulting">Consultation</button>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-aos="zoom-in" data-category="web">
+                    <div class="project-image">
+                        <img src="KolweziConnect.jpeg" alt="Site e-commerce pour boutique locale" loading="lazy">
+                        <div class="project-overlay">
+                            <a href="https://kolweziconnect.free.nf/" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>KolweziConnect</h3>
+                        <p>Une plateforme qui réunit plusieurs établissements à Kolwezi et ses environs.</p>
+                        <div class="project-tech">
+                            <span>HTML </span>
+                            <span>JavaScript</span>
+                            <span>CSS</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-aos="zoom-in" data-category="formation">
+                    <div class="project-image">
+                        <img src="bootcamp.jpg" alt="Programme de formation en ligne" loading="lazy">
+                        <div class="project-overlay">
+                            <a href="" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Bootcamp "Web Master"</h3>
+                        <p>Programme intensif de 12 semaines en développement web.</p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>JavaScript</span>
+                            <span>CSS</span>
+                            <span>PHP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-aos="zoom-in" data-category="consulting">
+                    <div class="project-image">
+                        <img src="mulykap.jpg" alt="Audit technique pour entreprise" loading="lazy">
+                        <div class="project-overlay">
+                            <a href="Mulykap/index.html" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Mulykap</h3>
+                        <p>Réalisation d'un site internet pour l'entreprise de transport Mulycap dans le Grand Katanga,
+                            dans le cadre de mon apprentissage en informatique de gestion.</p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" data-aos="zoom-in" data-category="consulting">
+                    <div class="project-image">
+                        <img src="assujettis.png" alt="Application de gestion des comptes des assujettis"
+                            loading="lazy">
+                        <div class="project-overlay">
+                            <a href="Gestion/index.html" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Gestion des Assujettis</h3>
+                        <p>Création d'une application pour le Bureau de l'Environnement de Mutshatsha, destinée à la
+                            gestion des comptes des assujettis et au suivi de leurs paiements de documents, réalisée
+                            dans le cadre de mon apprentissage en informatique de gestion.</p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card" data-aos="zoom-in" data-category="construction">
+                    <div class="project-image">
+                        <img src="logo.jpg" alt="Site web pour une entreprise de construction à Kolwezi" loading="lazy">
+                        <div class="project-overlay">
+                            <a href="umc/index.html" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-info">
+                        <h3>Site Web Entreprise de Construction à Kolwezi</h3>
+                        <p>
+                            Développement d'un site web professionnel pour une entreprise de construction basée à
+                            Kolwezi.
+                            Le projet met en valeur les services proposés, les réalisations de l’entreprise, ainsi
+                            qu’un système de demande de devis permettant aux clients de contacter directement
+                            l'entreprise.
+                        </p>
+
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Project 6 -->
+                <div class="project-card" data-aos="zoom-in" data-category="consulting">
+                    <div class="project-image">
+                        <img src="kks.jpg" alt="Système de gestion des réservations KKS Express" loading="lazy">
+                        <div class="project-overlay">
+                            <a href="kks/index.html" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>KKS Express</h3>
+                        <p>Développement d'un système de gestion des réservations de places pour KKS Express Kolwezi,
+                            réalisé dans le cadre de mon apprentissage en informatique de gestion.</p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-cta" data-aos="fade-up">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-briefcase"></i> Voir plus de projets
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h3 class="section-subtitle">Témoignages</h3>
+                <h2 class="section-title">Ce qu'ils disent de moi</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="testimonials-slider" data-aos="fade-up">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p>
+                            Socrate a redéveloppé notre site avec une approche professionnelle. Les performances ont
+                            augmenté de 40% et le référencement s'est considérablement amélioré.
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="client.jpg" alt="Client Marie Dupont" loading="lazy">
+                        </div>
+                        <div class="author-info">
+                            <h4>Jean-pierre</h4>
+                            <span>Gérant d'Eben-Ezer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p>
+                            Grâce à Socrate, notre boutique en ligne est passée de l'idée à la réalité en un temps
+                            record ! Son expertise en création de sites e-commerce nous a permis d'avoir une plateforme
+                            à la fois esthétique, intuitive et parfaitement optimisée pour les ventes.
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="daniella.jpg" alt="Client Marie Dupont" loading="lazy">
+                        </div>
+                        <div class="author-info">
+                            <h4>Daniella</h4>
+                            <span>Vendeuse E-commerce</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p>
+                            Nous avons confié à Socrate le développement de notre application web de gestion et le
+                            résultat a parfaitement répondu à nos attentes. Son approche professionnelle et méthodique
+                            nous a particulièrement impressionnés.
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="directrice.jpg" alt="Client Marie Dupont" loading="lazy">
+                        </div>
+                        <div class="author-info">
+                            <h4>Jorissen</h4>
+                            <span>Directrice d'agence, Secteur immobilier à Kolwezi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h3 class="section-subtitle">Collaboration</h3>
+                <h2 class="section-title">Contactez-moi</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">
+                    Vous avez un projet ou une question ? Voici mes coordonnées.
+                </p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Email</h4>
+                            <a href="mailto:socratekasongo14@gmail.com" target="_blank">
+                                socratekasongo14@gmail.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Téléphone</h4>
+                            <a href="tel:+243971400661" target="_blank">
+                                +243 971 400 661
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Localisation</h4>
+                            <span>Kolwezi, République Démocratique du Congo</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-social">
+                        <a href="https://github.com/SocrateEdgard" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/socrate-mwamba" target="_blank"
+                            rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://x.com/socrate_mwamba" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/243971400661" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm" action="https://formspree.io/f/xjkezbjv" method="POST">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Votre nom complet" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Votre adresse email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Sujet" required>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" placeholder="Votre message"
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                        <div id="formMessage" style="margin-top:15px; font-weight:bold;"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">Socrate MK</a>
+                    <p>
+                        Développeur Web & Formateur en technologies numériques. Je crée des solutions digitales
+                        performantes et forme les talents de demain.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="#about">À propos</a></li>
+                        <li><a href="#services">Expertises</a></li>
+                        <li><a href="#projects">Réalisations</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-services">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Développement Web</a></li>
+                        <li><a href="#services">Solutions Data</a></li>
+                        <li><a href="#services">Formation Tech</a></li>
+                        <li><a href="#services">Consultation</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-legal">
+                <div class="legal-text">
+                    <p><strong>Mentions légales :</strong> Ce site est édité par Socrate Mwamba Kasongo, développeur web
+                        indépendant basé à Kolwezi, RDC.</p>
+                    <p><strong>Politique de confidentialité : </strong>Afin de respecter les accords de confidentialité
+                        établis avec les clients, certains projets présentés dans ce portfolio sont affichés sous forme
+                        statique. Par ailleurs, certains travaux ne sont pas publiés ici, conformément à la volonté de
+                        leurs propriétaires qui n'ont pas autorisé la diffusion de leurs sites ou applications.</p>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        &copy; 2025 Socrate Mwamba Kasongo. Tous droits réservés.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialisation AOS (animations)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Sélection des éléments
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Gestion du thème
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        body.setAttribute('data-theme', savedTheme);
+
+        function toggleTheme() {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Bouton mode sombre (desktop)
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // Loader
+        window.addEventListener('load', function () {
+            const loader = document.getElementById('loader');
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        });
+
+        // Menu hamburger
+        const hamburger = document.getElementById('hamburger');
+        const navbarLinks = document.getElementById('navbarLinks');
+
+        hamburger.addEventListener('click', () => {
+            navbarLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.navbar-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbarLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Bouton retour en haut
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

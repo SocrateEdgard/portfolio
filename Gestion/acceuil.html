@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aperçu général - Gestion des assujettis</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<style>
+:root {
+    --primary: #4361ee; --success: #28a745; --info: #17a2b8; --warning: #ffc107; --danger: #dc3545;
+}
+body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f5f7fb; }
+.main-container { max-width:1400px; margin:0 auto; padding:20px; }
+.navbar-brand { font-weight:600; color:var(--primary);}
+.stat-card { border-radius:10px; color:white; padding:20px; margin-bottom:20px; text-align:center; }
+.stat-card .icon { font-size:2.5rem; margin-bottom:10px; opacity:0.8; }
+.currency-container { display:flex; justify-content:center; gap:5px; margin-top:5px; }
+.currency-badge { font-size:0.9rem; padding:5px 10px; border-radius:10px; }
+.fc-badge { background-color:var(--success); }
+.usd-badge { background-color:var(--info); }
+.search-container { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:20px; }
+.search-input { flex:1 1 auto; padding:10px 15px; border-radius:20px; border:1px solid #dee2e6; }
+.search-button { border-radius:20px; padding:10px 20px; background-color:var(--primary); color:white; border:none; }
+.search-button:hover { background-color:#3a7bd5; }
+</style>
+<!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNFWJEQ566"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-DNFWJEQ566');
+  </script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Gestion Assujettis</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="index.php"><i class="bi bi-house-door"></i> Accueil</a></li>
+        <li class="nav-item"><a class="nav-link" href="ajouter_assujetti.html"><i class="bi bi-person-plus"></i> Ajouter Assujetti</a></li>
+        <li class="nav-item"><a class="nav-link" href="ajouter_document.html"><i class="bi bi-file-earmark-plus"></i> Ajouter Document</a></li>
+        <li class="nav-item"><a class="nav-link" href="ajouter_versement.html"><i class="bi bi-cash-stack"></i> Enregistrer Versement</a></li>
+        <li class="nav-item"><a class="nav-link" href="historique.html"><i class="bi bi-clock-history"></i> Historique</a></li>
+      </ul>
+      <button class="btn btn-danger" onclick="location.href='index.html'"><i class="bi bi-box-arrow-right"></i> Déconnexion</button>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <form method="GET" action="index.php" class="search-container">
+    <input type="text" name="search" class="search-input" placeholder="Rechercher un assujetti...">
+    <button type="submit" class="search-button"><i class="bi bi-search"></i> Rechercher</button>
+  </form>
+
+  <div class="row">
+    <div class="col-md-3 col-sm-6"><div class="stat-card bg-primary"><div class="icon"><i class="bi bi-people-fill"></i></div><h6>Assujettis</h6><h2>325</h2></div></div>
+    <div class="col-md-3 col-sm-6"><div class="stat-card bg-info"><div class="icon"><i class="bi bi-file-earmark-text"></i></div><h6>Documents</h6><h2>23</h2></div></div>
+    <div class="col-md-3 col-sm-6"><div class="stat-card bg-success"><div class="icon"><i class="bi bi-cash-stack"></i></div><h6>Versements</h6><h2>100</h2></div></div>
+    <div class="col-md-3 col-sm-6"><div class="stat-card bg-warning text-dark"><div class="icon"><i class="bi bi-currency-exchange"></i></div><h6>Total Versements</h6>
+      <div class="currency-container">
+        <span class="badge fc-badge currency-badge">3.500.000 CDF</span>
+        <span class="badge usd-badge currency-badge">12.500 USD</span>
+      </div>
+    </div></div>
+  </div>
+
+  <h4 class="mt-4">Derniers assujettis</h4>
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <div>
+        <strong>Alain Musafiri</strong><br>
+        <small>alain.musafiri@email.com</small>
+      </div>
+      <span class="badge bg-primary">099 123 4567</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <div>
+        <strong>Chantal Ntumba</strong><br>
+        <small>chantal.ntumba@email.com</small>
+      </div>
+      <span class="badge bg-primary">081 765 4321</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <div>
+        <strong>Patrick Mungongo</strong><br>
+        <small>patrick.mungongo@email.com</small>
+      </div>
+      <span class="badge bg-primary">089 987 6543</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <div>
+        <strong>Marie Kabongo</strong><br>
+        <small>marie.kabongo@email.com</small>
+      </div>
+      <span class="badge bg-primary">097 543 2109</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <div>
+        <strong>Jean-Pierre Mwamba</strong><br>
+        <small>jp.mwamba@email.com</small>
+      </div>
+      <span class="badge bg-primary">085 210 9876</span>
+    </li>
+  </ul>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation - Mulykap Transport</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0066cc;
+            --secondary-blue: #004d99;
+            --accent-orange: #dc5828;
+            --light-gray: #f8f9fa;
+            --dark-color: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-gray);
+            color: var(--dark-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(0, 102, 204, 0.05), rgba(0, 102, 204, 0.05));
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            box-shadow: 0 4px 12px rgba(0, 68, 153, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+            animation: shine 8s infinite linear;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        main {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 30px 20px;
+        }
+        
+        .reservation-container {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 68, 153, 0.1);
+            overflow: hidden;
+            animation: fadeInUp 0.8s;
+        }
+        
+        .form-section {
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-section h3 {
+            color: var(--primary-blue);
+            margin-bottom: 25px;
+            font-size: 24px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .form-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-orange);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+        }
+        
+        .form-group i {
+            position: absolute;
+            right: 15px;
+            top: 40px;
+            color: #999;
+        }
+        
+        .button {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 68, 153, 0.3);
+        }
+        
+        .button:hover {
+            background: linear-gradient(to right, var(--secondary-blue), var(--primary-blue));
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 68, 153, 0.4);
+        }
+        
+        .button i {
+            margin-left: 8px;
+        }
+        
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .payment-method {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+        
+        .payment-method:hover {
+            border-color: var(--primary-blue);
+            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.1);
+        }
+        
+        .payment-method.selected {
+            border: 2px solid var(--primary-blue);
+            background-color: rgba(0, 102, 204, 0.05);
+        }
+        
+        .payment-method img {
+            width: 50px;
+            height: 30px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+        
+        .payment-method span {
+            display: block;
+            font-size: 14px;
+            color: var(--dark-color);
+        }
+        
+        .payment-details {
+            display: none;
+            margin-top: 20px;
+            animation: fadeIn 0.5s;
+        }
+        
+        .summary {
+            background-color: rgba(0, 102, 204, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .summary-item:last-child {
+            margin-bottom: 0;
+            font-weight: bold;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--secondary-blue), #003366);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-content h4 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .footer-content p {
+            margin: 10px 0;
+        }
+        
+        .footer-content a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-content a:hover {
+            color: #cce6ff;
+            text-decoration: underline;
+        }
+        
+        .social-media {
+            margin: 20px 0;
+        }
+        
+        .social-media a {
+            font-size: 20px;
+            margin: 0 15px;
+            color: white;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .social-media a:hover {
+            transform: translateY(-3px);
+            color: #cce6ff;
+        }
+        
+        @keyframes shine {
+            0% { transform: rotate(30deg) translate(-10%, -10%); }
+            100% { transform: rotate(30deg) translate(10%, 10%); }
+        }
+        
+        @media (max-width: 480px) {
+            .reservation-container {
+                border-radius: 0;
+            }
+            
+            .form-section {
+                padding: 20px;
+            }
+            
+            .payment-methods {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+        <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNFWJEQ566"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-DNFWJEQ566');
+    </script>
+</head>
+<body>
+    <header class="animate__animated animate__fadeInDown">
+        <h1><i class="fas fa-ticket-alt"></i> Réservation de Billets</h1>
+    </header>
+
+    <main>
+        <div class="reservation-container animate__animated animate__fadeInUp">
+            <section id="reservationSection" class="form-section">
+                <h3>Formulaire de Réservation</h3>
+                <form id="reservationForm">
+                    <div class="form-group">
+                        <label for="departure">Départ :</label>
+                        <select id="departure" name="departure" required>
+                            <option value="">Sélectionnez une ville</option>
+                            <option value="Lubumbashi">Lubumbashi</option>
+                            <option value="Kolwezi">Kolwezi</option>
+                            <option value="Likasi">Likasi</option>
+                            <option value="Kasumbalesa">Kasumbalesa</option>
+                        </select>
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="destination">Destination :</label>
+                        <select id="destination" name="destination" required>
+                            <option value="">Sélectionnez une ville</option>
+                            <option value="Lubumbashi">Lubumbashi</option>
+                            <option value="Kolwezi">Kolwezi</option>
+                            <option value="Likasi">Likasi</option>
+                            <option value="Kasumbalesa">Kasumbalesa</option>
+                        </select>
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date">Date de voyage :</label>
+                        <input type="date" id="date" name="date" required>
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="passengers">Nombre de passagers :</label>
+                        <input type="number" id="passengers" name="passengers" min="1" max="10" required>
+                        <i class="fas fa-users"></i>
+                    </div>
+                    
+                    <button type="submit" class="button">Continuer <i class="fas fa-arrow-right"></i></button>
+                </form>
+            </section>
+            
+            <section id="paymentSection" class="form-section" style="display: none;">
+                <div class="summary">
+                    <h4>Résumé de votre réservation</h4>
+                    <div class="summary-item">
+                        <span>Départ :</span>
+                        <span id="summaryDeparture"></span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Destination :</span>
+                        <span id="summaryDestination"></span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Date :</span>
+                        <span id="summaryDate"></span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Passagers :</span>
+                        <span id="summaryPassengers"></span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Total :</span>
+                        <span id="summaryTotal">50$</span>
+                    </div>
+                </div>
+                
+                <h3>Méthode de Paiement</h3>
+                <p>Sélectionnez votre méthode de paiement préférée :</p>
+                
+                <div class="payment-methods">
+                    <div class="payment-method" data-method="mobile-money">
+                        <img src="mpesa.jpeg" alt="Mobile Money">
+                        <span>Vodacom M-pesa</span>
+                    </div>
+                    <div class="payment-method" data-method="airtel-money">
+                        <img src="airtel-money.png" alt="Airtel Money">
+                        <span>Airtel Money</span>
+                    </div>
+                    <div class="payment-method" data-method="orange-money">
+                        <img src="orange.png" alt="Orange Money">
+                        <span>Orange Money</span>
+                    </div>
+                    <div class="payment-method" data-method="visa">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" alt="Visa">
+                        <span>Carte Visa</span>
+                    </div>
+                </div>
+                
+                <div id="mobilePaymentDetails" class="payment-details">
+                    <form id="mobilePaymentForm">
+                        <div class="form-group">
+                            <label for="phoneNumber">Numéro de téléphone :</label>
+                            <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+243 XX XXX XX XX" required>
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <button type="submit" class="button">Payer maintenant <i class="fas fa-lock"></i></button>
+                    </form>
+                </div>
+                
+                <div id="cardPaymentDetails" class="payment-details">
+                    <form id="cardPaymentForm">
+                        <div class="form-group">
+                            <label for="cardNumber">Numéro de carte :</label>
+                            <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+                            <i class="far fa-credit-card"></i>
+                        </div>
+                        <div class="form-group">
+                            <label for="expiryDate">Date d'expiration :</label>
+                            <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/AA" required>
+                            <i class="far fa-calendar-alt"></i>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV :</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <button type="submit" class="button">Payer maintenant <i class="fas fa-lock"></i></button>
+                    </form>
+                </div>
+                
+                <button id="backButton" class="button" style="background: var(--light-gray); color: var(--dark-color); margin-top: 15px;">
+                    <i class="fas fa-arrow-left"></i> Retour
+                </button>
+            </section>
+            
+            <section id="confirmationSection" class="form-section" style="display: none; text-align: center;">
+                <i class="fas fa-check-circle" style="font-size: 80px; color: var(--primary-blue); margin-bottom: 20px;"></i>
+                <h3>Réservation confirmée !</h3>
+                <p>Votre réservation a été effectuée avec succès.</p>
+                <p>Un email de confirmation vous a été envoyé avec les détails de votre voyage.</p>
+                <div class="summary" style="text-align: left; margin-top: 30px;">
+                    <div class="summary-item">
+                        <span>Référence :</span>
+                        <span id="bookingReference">MKY-2023-XXXXXX</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Départ :</span>
+                        <span id="confirmationDeparture"></span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Destination :</span>
+                        <span id="confirmationDestination"></span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Date :</span>
+                        <span id="confirmationDate"></span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Passagers :</span>
+                        <span id="confirmationPassengers"></span>
+                    </div>
+                </div>
+                <button id="newBookingButton" class="button" style="margin-top: 30px;">
+                    <i class="fas fa-plus"></i> Nouvelle réservation
+                </button>
+            </section>
+        </div>
+    </main>
+
+    <footer class="animate__animated animate__fadeInUp">
+        <div class="footer-content">
+            <h4><i class="fas fa-bus"></i> MULYKAP TRANSPORT</h4>
+            <p>&copy; 2024 Mulykap Transport. Tous droits réservés.</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:contact@mulykap.com">contact@mulykap.com</a></p>
+            <p><i class="fas fa-phone"></i> <a href="tel:+243892889353">+243 892 889 353</a></p>
+            <div class="social-media">
+                <a href="https://www.facebook.com/Mulykap" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.twitter.com/Mulykap" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/Mulykap" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion des étapes de réservation
+            const reservationForm = document.getElementById('reservationForm');
+            const paymentSection = document.getElementById('paymentSection');
+            const confirmationSection = document.getElementById('confirmationSection');
+            const backButton = document.getElementById('backButton');
+            const newBookingButton = document.getElementById('newBookingButton');
+            
+            // Gestion des méthodes de paiement
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            const mobilePaymentDetails = document.getElementById('mobilePaymentDetails');
+            const cardPaymentDetails = document.getElementById('cardPaymentDetails');
+            
+            // Générer une référence de réservation aléatoire
+            function generateBookingReference() {
+                const letters = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
+                const numbers = '0123456789';
+                let result = 'MKY-';
+                
+                // Ajouter l'année courante
+                result += new Date().getFullYear() + '-';
+                
+                // Ajouter 6 caractères aléatoires
+                for (let i = 0; i < 3; i++) {
+                    result += letters.charAt(Math.floor(Math.random() * letters.length));
+                }
+                for (let i = 0; i < 3; i++) {
+                    result += numbers.charAt(Math.floor(Math.random() * numbers.length));
+                }
+                
+                return result;
+            }
+            
+            // Étape 1 : Soumission du formulaire de réservation
+            reservationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Récupérer les valeurs du formulaire
+                const departure = document.getElementById('departure').value;
+                const destination = document.getElementById('destination').value;
+                const date = document.getElementById('date').value;
+                const passengers = document.getElementById('passengers').value;
+                
+                // Mettre à jour le résumé
+                document.getElementById('summaryDeparture').textContent = departure;
+                document.getElementById('summaryDestination').textContent = destination;
+                document.getElementById('summaryDate').textContent = new Date(date).toLocaleDateString('fr-FR');
+                document.getElementById('summaryPassengers').textContent = passengers;
+                
+                // Calculer le total (simplifié)
+                const total = passengers * 50;
+                document.getElementById('summaryTotal').textContent = total + '$';
+                
+                // Passer à l'étape de paiement
+                document.getElementById('reservationSection').style.display = 'none';
+                paymentSection.style.display = 'block';
+            });
+            
+            // Étape 2 : Sélection de la méthode de paiement
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    // Retirer la sélection précédente
+                    paymentMethods.forEach(m => m.classList.remove('selected'));
+                    
+                    // Ajouter la sélection à la méthode cliquée
+                    this.classList.add('selected');
+                    
+                    // Afficher le formulaire de paiement correspondant
+                    const paymentMethod = this.getAttribute('data-method');
+                    
+                    mobilePaymentDetails.style.display = 'none';
+                    cardPaymentDetails.style.display = 'none';
+                    
+                    if (paymentMethod === 'mobile-money' || paymentMethod === 'airtel-money' || paymentMethod === 'orange-money') {
+                        mobilePaymentDetails.style.display = 'block';
+                    } else if (paymentMethod === 'visa') {
+                        cardPaymentDetails.style.display = 'block';
+                    }
+                });
+            });
+            
+            // Étape 3 : Retour au formulaire de réservation
+            backButton.addEventListener('click', function() {
+                paymentSection.style.display = 'none';
+                document.getElementById('reservationSection').style.display = 'block';
+            });
+            
+            // Étape 4 : Soumission du paiement (simulé)
+            document.getElementById('mobilePaymentForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                completeBooking();
+            });
+            
+            document.getElementById('cardPaymentForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                completeBooking();
+            });
+            
+            function completeBooking() {
+                // Mettre à jour la section de confirmation
+                document.getElementById('bookingReference').textContent = generateBookingReference();
+                document.getElementById('confirmationDeparture').textContent = document.getElementById('summaryDeparture').textContent;
+                document.getElementById('confirmationDestination').textContent = document.getElementById('summaryDestination').textContent;
+                document.getElementById('confirmationDate').textContent = document.getElementById('summaryDate').textContent;
+                document.getElementById('confirmationPassengers').textContent = document.getElementById('summaryPassengers').textContent;
+                
+                // Afficher la confirmation
+                paymentSection.style.display = 'none';
+                confirmationSection.style.display = 'block';
+            }
+            
+            // Étape 5 : Nouvelle réservation
+            newBookingButton.addEventListener('click', function() {
+                // Réinitialiser les formulaires
+                reservationForm.reset();
+                document.getElementById('mobilePaymentForm').reset();
+                document.getElementById('cardPaymentForm').reset();
+                
+                // Cacher les détails de paiement
+                mobilePaymentDetails.style.display = 'none';
+                cardPaymentDetails.style.display = 'none';
+                
+                // Retirer les sélections de méthode de paiement
+                paymentMethods.forEach(m => m.classList.remove('selected'));
+                
+                // Retourner à l'étape 1
+                confirmationSection.style.display = 'none';
+                document.getElementById('reservationSection').style.display = 'block';
+            });
+            
+            // Validation des champs de date (aujourd'hui ou futur)
+            const dateInput = document.getElementById('date');
+            dateInput.min = new Date().toISOString().split('T')[0];
+            
+            // Empêcher la même ville pour départ et destination
+            const departureSelect = document.getElementById('departure');
+            const destinationSelect = document.getElementById('destination');
+            
+            departureSelect.addEventListener('change', function() {
+                if (this.value === destinationSelect.value) {
+                    destinationSelect.value = '';
+                }
+            });
+            
+            destinationSelect.addEventListener('change', function() {
+                if (this.value === departureSelect.value) {
+                    departureSelect.value = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
