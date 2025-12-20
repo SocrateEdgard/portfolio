@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>S
 <html lang="fr">
 
 <head>
@@ -586,25 +586,28 @@
                 <div class="contact-form">
                     <form id="contactForm" action="https://formspree.io/f/xjkezbjv" method="POST">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Votre nom complet" required>
+                            <input type="text" name="name" placeholder="Votre nom complet" required>
                         </div>
-
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Votre adresse email" required>
+                            <input type="email" name="email" placeholder="Votre adresse email" required>
                         </div>
-
                         <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Sujet" required>
+                            <input type="text" name="subject" placeholder="Sujet" required>
                         </div>
-
                         <div class="form-group">
-                            <textarea id="message" name="message" rows="5" placeholder="Votre message"
-                                required></textarea>
+                            <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
                         </div>
-
-                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
-                        <div id="formMessage" style="margin-top:15px; font-weight:bold;"></div>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Envoyer le message</button>
                     </form>
+                </div>
+
+                <div id="contactModal" class="custom-modal">
+                    <div class="modal-content">
+                        <div id="modalIcon" class="modal-icon"></div>
+                        <h3 id="modalTitle">Titre</h3>
+                        <p id="modalBody">Message de retour</p>
+                        <button class="btn btn-secondary" onclick="closeModal()">Fermer</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -727,6 +730,63 @@
                 backToTop.classList.add('active');
             } else {
                 backToTop.classList.remove('active');
+            }
+        });
+    </script>
+
+    <script>
+        const contactForm = document.getElementById('contactForm');
+        const modal = document.getElementById('contactModal');
+        const submitBtn = document.getElementById('submitBtn');
+
+        function showModal(isSuccess, message) {
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
+            const icon = document.getElementById('modalIcon');
+
+            if (isSuccess) {
+                icon.innerHTML = "✅";
+                title.innerText = "Succès !";
+                title.className = "success-text";
+                body.innerText = message || "Votre message a été envoyé. Je vous répondrai très bientôt.";
+            } else {
+                icon.innerHTML = "❌";
+                title.innerText = "Oups !";
+                title.className = "error-text";
+                body.innerText = message || "Une erreur est survenue lors de l'envoi.";
+            }
+            modal.style.display = "flex";
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.innerText = "Envoi en cours...";
+            submitBtn.disabled = true;
+
+            const data = new FormData(contactForm);
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    showModal(true);
+                    contactForm.reset();
+                } else {
+                    showModal(false, "Serveur injoignable. Veuillez réessayer.");
+                }
+            } catch (error) {
+                showModal(false, "Vérifiez votre connexion internet.");
+            } finally {
+                submitBtn.innerText = "Envoyer le message";
+                submitBtn.disabled = false;
             }
         });
     </script>
