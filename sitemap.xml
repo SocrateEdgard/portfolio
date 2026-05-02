@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Page d'accueil -->
+  <url>
+    <loc>https://socrateedgard.github.io/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Sections principales -->
+  <url>
+    <loc>https://socrateedgard.github.io/#about</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://socrateedgard.github.io/#services</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://socrateedgard.github.io/#projects</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://socrateedgard.github.io/#contact</loc>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
