@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enregistrer un versement</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <style>
+    body {
+      background-color: #f8fafc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+    }
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      padding: 25px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #4361ee;
+      font-weight: 500;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+    .nav-links a:hover {
+      background-color: #f0f5ff;
+    }
+    .nav-links a.active {
+      background-color: #4361ee;
+      color: white;
+    }
+    .form-control, .form-select {
+      border-radius: 8px;
+      padding: 10px 15px;
+    }
+    .btn {
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-weight: 500;
+    }
+    .btn-primary {
+      background-color: #4361ee;
+      border-color: #4361ee;
+    }
+    .alert {
+      border-radius: 8px;
+    }
+    .input-group-text {
+      min-width: 80px;
+      justify-content: center;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+    <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNFWJEQ566"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-DNFWJEQ566');
+  </script>
+</head>
+<body>
+  <div class="main-container">
+    <div class="nav-links">
+  <a href="acceuil.html"><i class="bi bi-house-door"></i> Aperçu général</a>
+  <a href="ajouter_assujetti.html"><i class="bi bi-person-plus"></i> Ajouter assujetti</a>
+  <a href="ajouter_document.html" class="active"><i class="bi bi-file-earmark-plus"></i> Ajouter document</a>
+  <a href="ajouter_versement.html"><i class="bi bi-cash-stack"></i> Enregistrer versement</a>
+  <a href="historique.html"><i class="bi bi-clock-history"></i> Historique</a>
+</div>
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="mb-0"><i class="bi bi-cash-stack me-2"></i> Enregistrer un versement</h2>
+      <a href="index.php" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left"></i> Retour
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <form method="post" class="mt-4">
+          <div class="mb-3">
+            <label for="id_assujetti" class="form-label">Assujetti *</label>
+            <select class="form-select" id="id_assujetti" name="id_assujetti" required>
+              <option value="">Sélectionner un assujetti</option>
+              <option value="1">Alain Musafiri</option>
+              <option value="2">Chantal Ntumba</option>
+              <option value="3">Patrick Mungongo</option>
+              <option value="4">Marie Kabongo</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="id_document" class="form-label">Document *</label>
+            <select class="form-select" id="id_document" name="id_document" required>
+              <option value="">Sélectionner un document</option>
+              <option value="1">Permis de conduire</option>
+              <option value="2">Carte d'identité</option>
+              <option value="3">Licence professionnelle</option>
+              <option value="4">Certificat de résidence</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="montant" class="form-label">Montant *</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="montant" name="montant" step="0.01" min="0.01" required>
+              <select class="form-select" name="devise" style="max-width: 120px;">
+                <option value="CDF">CDF</option>
+                <option value="USD">USD</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="mode_paiement" class="form-label">Mode de paiement *</label>
+            <select class="form-select" id="mode_paiement" name="mode_paiement" required>
+              <option value="comptant">Comptant</option>
+              <option value="partiel" selected>Partiel</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="commentaire" class="form-label">Commentaire</label>
+            <textarea class="form-control" id="commentaire" name="commentaire" rows="3"></textarea>
+          </div>
+
+          <div class="d-flex justify-content-end mt-4">
+            <button type="reset" class="btn btn-outline-secondary me-3">
+              <i class="bi bi-eraser"></i> Annuler
+            </button>
+            <button type="submit" class="btn btn-primary">
+              <i class="bi bi-save"></i> Enregistrer
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

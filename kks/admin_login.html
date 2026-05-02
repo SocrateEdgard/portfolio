@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connexion - Admin KSS Transport</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0fff0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .login-container {
+        width: 350px;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    .login-container h1 {
+        color: #2e8b57;
+        margin-bottom: 25px;
+    }
+    .login-container p {
+        color: #666;
+        margin-bottom: 25px;
+    }
+    .form-group {
+        text-align: left;
+        margin-bottom: 20px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #555;
+    }
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    .form-group input:focus {
+        border-color: #2e8b57;
+        outline: none;
+        box-shadow: 0 0 5px rgba(46, 139, 87, 0.5);
+    }
+    .btn {
+        width: 100%;
+        padding: 12px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+        background-color: #45a049;
+    }
+</style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNFWJEQ566"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-DNFWJEQ566');
+    </script>
+</head>
+<body>
+
+<div class="login-container">
+    <h1>Connexion Admin</h1>
+    <p>Entrez le mot de passe pour accéder au panneau d'administration.</p>
+    <form id="loginForm" action="#" method="post">
+        <div class="form-group">
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn">Se connecter</button>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Définir le mot de passe fixe
+        const fixedPassword = "09714mM";
+        
+        const passwordInput = document.getElementById('password');
+        
+        // Afficher le mot de passe fixe dans le placeholder
+        passwordInput.placeholder = fixedPassword;
+
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Vérifier si le mot de passe saisi correspond au mot de passe fixe
+            if (passwordInput.value === fixedPassword) {
+                window.location.href = "admin_panel.html";
+            } else {
+                alert("Mot de passe incorrect. Veuillez réessayer.");
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

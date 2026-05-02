@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Panel - KSS Transport</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+body { font-family: Arial, sans-serif; background-color: #f0fff0; margin: 0; padding: 0; }
+.container { max-width: 1200px; margin: auto; padding: 20px; }
+h1 { text-align: center; color: #2e8b57; margin-bottom: 20px; }
+
+/* Logout button */
+.logout-button { position: fixed; top: 10px; right: 10px; background-color: #dc3545; color: white; padding: 8px 12px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 0.8em; z-index: 1001; }
+.logout-button:hover { background-color: #c82333; }
+
+/* Hamburger */
+.hamburger { position: fixed; top: 10px; left: 10px; z-index: 1001; cursor: pointer; display: flex; flex-direction: column; gap: 5px; }
+.hamburger div { width: 25px; height: 3px; background-color: #2e8b57; transition: 0.3s; }
+
+/* Side menu */
+#side-menu { 
+    position: fixed; 
+    top: 0; 
+    left: -260px; /* Le menu est caché par défaut */
+    width: 260px; 
+    height: 100%; 
+    background-color: #e6ffe6; 
+    padding: 20px; 
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2); 
+    transition: 0.3s; 
+    overflow-y: auto; 
+    z-index: 1000; 
+}
+#side-menu h3 { margin-top: 0; color: #155724; text-align: center; }
+#side-menu .stat-box { background-color: #d4edda; padding: 15px; border-radius: 8px; margin-bottom: 10px; text-align: center; }
+#side-menu .stat-box p { margin: 0; font-size: 1.2em; font-weight: bold; }
+#side-menu.active { 
+    left: 0; /* Le menu est visible quand la classe 'active' est ajoutée */
+}
+.reserve-button { 
+    display: inline-block;
+    padding: 8px 15px; 
+    background-color: #2e8b57;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 0.9em; 
+    transition: background-color 0.3s;
+}
+.reserve-button:hover {
+    background-color: #256d44;
+}
+
+/* Search form */
+.search-form { width: 100%; display: flex; justify-content: center; margin-bottom: 20px; }
+.search-wrapper { width: 100%; max-width: 500px; display: flex; }
+.search-wrapper input[type="text"] {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 30px 0 0 30px;
+    font-size: 1em;
+    outline: none;
+}
+.search-wrapper button {
+    padding: 12px 15px;
+    border: 1px solid #4CAF50;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+    font-size: 1em;
+}
+.search-wrapper button i { font-size: 1em; }
+
+/* Table */
+.table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
+table { width: 100%; border-collapse: collapse; min-width: 600px; margin-top: 20px; table-layout: auto; }
+th, td { border: 1px solid #c3e6cb; padding: 6px 8px; text-align: left; font-size: 0.85em; white-space: nowrap; }
+th { background-color: #4CAF50; color: white; text-transform: uppercase; }
+tr:nth-child(even) { background-color: #f2f2f2; }
+tr:hover { background-color: #e6ffe6; }
+.statut-valide { color: #2e8b57; font-weight: bold; }
+.statut-attente { color: #ff9900; font-weight: bold; }
+.action-link { display: inline-block; padding: 4px 8px; background-color: #4CAF50; color: white; border-radius: 4px; text-decoration: none; font-size: 0.75em; }
+.action-link:hover { background-color: #45a049; }
+
+/* Responsive mobile - Pas de changement pour que le menu et le bouton soient toujours là */
+@media screen and (max-width: 768px) {
+    .search-wrapper { max-width: 70%; }
+    .search-wrapper input[type="text"], .search-wrapper button {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+    table { font-size: 0.75em; min-width: 500px; }
+    th, td { padding: 4px 6px; }
+}
+
+</style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNFWJEQ566"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-DNFWJEQ566');
+    </script>
+</head>
+<body>
+
+<a href="admin_login.html" class="logout-button">Se déconnecter</a>
+
+<div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<div id="side-menu">
+    <h3>Statistiques</h3>
+    <div class="stat-box"><p>Total Réservations</p><p>2</p></div>
+    <div class="stat-box"><p>En attente</p><p>1</p></div>
+    <div class="stat-box"><p>Validées</p><p>2</p></div>
+    <div class="stat-box"><p>Total Places</p><p>6</p></div>
+    <a href="reservation.html" class="reserve-button">Faire une réservation</a>
+</div>
+
+<div class="container">
+    <h1>Administration - Gestion des réservations</h1>
+
+    <form action="admin_panel.html" method="GET" class="search-form">
+        <div class="search-wrapper">
+            <input type="text" name="recherche" placeholder="Rechercher par nom ou contact..." value="">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+    </form>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Contact</th>
+                    <th>Nombre de places</th>
+                    <th>Heure de départ</th>
+                    <th>Statut</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Jean Mbuyi</td>
+                    <td>0891234567</td>
+                    <td>2</td>
+                    <td>10:00</td>
+                    <td><span class="statut-valide">Validée</span></td>
+                    <td>2023-10-27</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Marie Ntumba</td>
+                    <td>0990575126</td>
+                    <td>1</td>
+                    <td>14:30</td>
+                    <td><span class="statut-attente">En attente</span></td>
+                    <td>2023-10-27</td>
+                    <td><a class="action-link" href="?valider_id=2" onclick="return confirm('Valider cette réservation ?');">Valider</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Jorissen musau</td>
+                    <td>0988922335</td>
+                    <td>3</td>
+                    <td>08:00</td>
+                    <td><span class="statut-valide">Validée</span></td>
+                    <td>2023-10-26</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById('side-menu').classList.toggle('active');
+}
+</script>
+
+</body>
+</html>
